@@ -3,6 +3,16 @@ let path = require('path') // well, path parser
 let fs = require('fs') // filesystem framework
 const parse = require('minimist') // command line arguments parser
 
+fs.readFile("hello", (err, data) => {
+    let msg;
+    if (err) {
+        msg = 'no helo :c'
+    } else {
+        msg = data.toString();
+    }
+    console.log(msg)
+})
+
 const args = parse(process.argv.slice(2), {
     default: {
         port: 8080,
